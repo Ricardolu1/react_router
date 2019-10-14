@@ -11,50 +11,44 @@ import {
 function App() {
   return (
     <Router>
-      <div>
+      <div class="navWrapper">
         <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
+          <Link to="/">Home</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/signup">SignUp</Link>
+          <Link to="/welcome">Welcome</Link>
         </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route path="/" exact component={Home} />
+          <Route path="/login" component={Login}/>
+          <Route path="/signup" component={SignUp}/>
+          <Route path="/welcome" component={Welcome}/>
         </Switch>
       </div>
     </Router>
   );
 }
 
+function Login() {
+  return(
+    <div className="box">登录</div>
+  )
+}
+function SignUp() {
+  return(
+    <div className="box">注册 </div>
+  )
+}
+function Welcome() {
+  return(
+    <div className="box">欢迎</div>
+  )
+}
+
 function Home() {
-  return <h2>Home</h2>;
+  return <div className="box">home</div>
 }
 
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
 
 export default App
 
@@ -107,21 +101,6 @@ export default App
 //   )
 // }
 
-// function Box1() {
-//   return(
-//     <div className="box">登录</div>
-//   )
-// }
-// function Box2() {
-//   return(
-//     <div className="box">注册 </div>
-//   )
-// }
-// function Welcome() {
-//   return(
-//     <div className="box">欢迎</div>
-//   )
-// }
 
 
 
